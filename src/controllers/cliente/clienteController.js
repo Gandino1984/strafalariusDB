@@ -1,11 +1,3 @@
-<<<<<<< HEAD
-async function getAll(){
-    return "mostramos todos los clientes";
-}
-
-async function getById(id){
-    return `mostramos al cliente con id =  ${id}`;
-=======
 //esto es para falsear la base de datos hasta que la conectemos a la app
 const clientes = [
 
@@ -67,11 +59,6 @@ async function getById(id){
 
 //clienteData es un objeto que tiene el nombre, apellido, telefono, email, direccion y membresia del cliente
 async function create(clienteData){
-<<<<<<< HEAD
-    const {nombre_cliente, apellido_cliente, telefono_cliente, email_cliente, direccion_cliente, membresia_cliente} = clienteData;
-    return `Los datos de cliente son: nombre: ${nombre_cliente} apellido: ${apellido_cliente} teléfono ${telefono_cliente} email: ${email_cliente} dirección: ${direccion_cliente} membresía: ${membresia_cliente}`;    
-=======
-
     const {nombre_cliente, apellido_cliente, telefono_cliente, email_cliente, direccion_cliente, membresia_cliente} = clienteData;
     //get max id del arreglo que falsea la base datos. Esto cambiará cuando conectemos la DB
     if(!nombre_cliente){
@@ -82,22 +69,10 @@ async function create(clienteData){
     const newCliente = {id_cliente:newID, nombre_cliente, apellido_cliente, telefono_cliente, email_cliente, direccion_cliente, membresia_cliente};
     clientes.push(newCliente);
     return {data:newCliente};
->>>>>>> f816ae54b87da2b2bfb9702a9f45d750f7db779c
 }
 
 //clienteData es un objeto que tiene el nombre, apellido, telefono, email, direccion y membresia del cliente
 async function update(id, clienteData){
-<<<<<<< HEAD
-    const {nombre_cliente, apellido_cliente, telefono_cliente, email_cliente, direccion_cliente, membresia_cliente} = clienteData;
-    return `Los nuevos datos de cliente: nombre: ${nombre_cliente} apellido: ${apellido_cliente} teléfono ${telefono_cliente} email: ${email_cliente} dirección: ${direccion_cliente} membresía: ${membresia_cliente}`;    
-}
-
-async function remove(id){
-    return `Borramos artista con id ${id}`;
-}
-
-export{
-=======
 
     const {nombre_cliente, apellido_cliente, telefono_cliente, email_cliente, direccion_cliente, membresia_cliente} = clienteData;
     
@@ -137,31 +112,17 @@ async function remove(id){
 }
 
 export{
-
->>>>>>> f816ae54b87da2b2bfb9702a9f45d750f7db779c
     getAll,
     getById,
     create,
     update,
     remove
-<<<<<<< HEAD
-};
-
-export default{
-=======
-
 };
 
 export default{ 
-
->>>>>>> f816ae54b87da2b2bfb9702a9f45d750f7db779c
     getAll,
     getById,
     create,
     update,
     remove
-<<<<<<< HEAD
-=======
-
->>>>>>> f816ae54b87da2b2bfb9702a9f45d750f7db779c
 };
