@@ -1,20 +1,19 @@
 //importación nombrada solo del objeto Router de express
-import { Router } from "express";
-
-
-import routerApi from "./apiRoutes/routerApi.js";
-// import clienteRouter from "./apiRoutes/clienteApiRouter.js"
-
 import dotenv from "dotenv";
-
-const router = Router();
 
 dotenv.config();    
 
-router.use("/api", routerApi);
+import { Router } from "express";
 
-// router.get("/", (req, res)=>{ 
-//     res.send("Hola " + process.env.APP_USERNAME + " El servidor de strafalariusDB está en marcha en el puerto = " + process.env.APP_PORT);
-// });
+import apiRouter from "./apiRoutes/apiRouter.js";
+
+import viewRouter from "./viewRoutes/viewRouter.js";
+
+const router = Router();
+
+router.use("/api", apiRouter);
+
+router.use("/", viewRouter);
 
 export default router;  
+
