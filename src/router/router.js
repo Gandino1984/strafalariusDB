@@ -1,15 +1,18 @@
 //importación nombrada solo del objeto Router de express
-import { Router } from "express";
-
-
-import routerApi from "./apiRoutes/apiRouter.js";
-
 import dotenv from "dotenv";
-
-const router = Router();
 
 dotenv.config();    
 
-router.use("/api", routerApi);
+import { Router } from "express";
+
+import apiRouter from "./apiRoutes/apiRouter.js";
+
+import viewRouter from "./viewRoutes/viewRouter.js";
+
+const router = Router();
+
+router.use("/api", apiRouter);
+router.use("/", viewRouter);
 
 export default router;  
+
