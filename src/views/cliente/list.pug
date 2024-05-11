@@ -2,7 +2,7 @@ extends ../layout
 
 block content
     h1 Lista de clientes
-    // la variable error se carga en el pug al llamar al render
-    //en el clienteViewController
+    // la variable error del {error, data} se carga en el pug al llamar 
+    //al res.render en el clienteViewController
     if error
         p(class="error")=error
