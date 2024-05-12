@@ -6,7 +6,7 @@ const router = Router();
 
 router.get("/", clienteViewController.getAll);
 
-router.get("/create", clienteViewController.createForm);
+router.get("/new", clienteViewController.createForm);
 
 router.post("/", clienteViewController.create);
 
