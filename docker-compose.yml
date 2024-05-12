@@ -14,3 +14,13 @@ services:
   volumes:
     - .db/localDataStorage_strafalariusDB:/varlib/mysql
     - ./db/init:/docker-entrypoint-initdb.d
+
+  node:
+    build: .
+    container_name: strafalarius_cont
+    restart: always
+    ports:
+      - ${APP_PORT}:3000
+    volumes:
+      - .:/app
+      - /app/node_modules
