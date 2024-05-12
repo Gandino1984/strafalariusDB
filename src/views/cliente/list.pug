@@ -11,5 +11,11 @@ block content
             each cliente in data
                 li
                     a(href="/cliente/"+cliente.id_cliente)=cliente.nombre_cliente
+                    a(href="") 
+                        button Editar
+                    form(action=`./${cliente.id_cliente}/remove`, method="post")
+                        button(type="submit") Borrar 
+    a(href="/cliente/new")
+        button Nuevo
 
     
