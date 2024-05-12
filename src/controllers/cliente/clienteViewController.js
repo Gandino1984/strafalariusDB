@@ -8,7 +8,7 @@ async function getAll(req, res){
 async function getById(req, res){
     const id = req.params.id;   
     const {error, data} = await clienteController.getById(id);
-    res.render("cliente/show", {error,data});
+    res.render("cliente/show", {error,cliente:data});
 }
 
 async function createForm(req, res){
