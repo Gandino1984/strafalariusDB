@@ -6,3 +6,9 @@ block content
     //al res.render en el clienteViewController
     if error
         p(class="error")=error
+    ul 
+        each cliente in data
+            li
+                a(href="/cliente/"+cliente.id_cliente)=cliente.nombre_cliente
+
+    
