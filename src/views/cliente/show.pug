@@ -1,6 +1,7 @@
 extends ../layout
 
-//esto sobreescribe el content del layout.pug
+ 
+
 block content 
     if error
         p(class="error")=error 
@@ -10,4 +11,5 @@ block content
         if cliente.membresia_cliente
             p Tipo de membresía: #{cliente.membresia_cliente}    
             p Su dirección es: #{cliente.direccion_cliente}
-        
+    a(href="/cliente")
+        button Volver   
