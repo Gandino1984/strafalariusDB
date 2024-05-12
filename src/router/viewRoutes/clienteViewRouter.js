@@ -18,5 +18,4 @@ router.post("/:id", clienteViewController.update);
 
 router.get("/:id/remove", clienteViewController.remove); 
 
-
 export default router;

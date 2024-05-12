@@ -18,8 +18,8 @@ async function createForm(req, res){
 async function create(req, res){
     const  {nombre_cliente, apellido_cliente, telefono_cliente, email_cliente, direccion_cliente, membresia_cliente} = req.body;
     const {error,data} = await clienteController.create(nombre_cliente, apellido_cliente, telefono_cliente, email_cliente, direccion_cliente, membresia_cliente);
-    res.json({error,data});
-    // res.redirect("/cliente");
+    // res.json({error,data});
+    res.redirect("/cliente");
 }   
 
 async function updateForm(req, res){

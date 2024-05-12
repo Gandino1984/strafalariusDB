@@ -67,7 +67,6 @@ async function create(clienteData){
     const newID = maxID + 1;
     const newCliente = {id_cliente:newID, nombre_cliente, apellido_cliente, telefono_cliente, email_cliente, direccion_cliente, membresia_cliente};
     clientes.push(newCliente);
-    console.log(newCliente);
     return {data:newCliente};
 }
 
