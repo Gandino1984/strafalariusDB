@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+    h1 Lista de clientes
+    // la variable error del {error, data} se carga en el pug al llamar 
+    //al res.render en el clienteViewController
+    if error
+        p(class="error")=error
+    if data
+        ul 
+            each cliente in data
+                li
+                    a(href="/cliente/"+cliente.id_cliente)=cliente.nombre_cliente
+                    a(href=`cliente/${cliente.id_cliente}/update`) 
+                        button Editar
+                    form(action=`cliente/${cliente.id_cliente}/remove`, method="post")
+                        button(type="submit") Borrar 
+    a(href="/cliente/new")
+        button Nuevo
+
+    
