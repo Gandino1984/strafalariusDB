@@ -1,0 +1,10 @@
+extends ../layout
+
+block content 
+    h2 Crear cliente nuevo
+    form(action="/cliente", method="post")
+        label(for="nombre_cliente") Nombre
+        input(id="nombre_cliente" type="text" name="nombre_cliente")
+        label(for="apellido_cliente") Apellido 
+        input(id="apellido_cliente" type="text" name="apellido_cliente")
+        button(type="submit") CREAR NUEVO   

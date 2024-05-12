@@ -16,10 +16,11 @@ async function createForm(req, res){
 }
 
 async function create(req, res){
-    const  {nombre_cliente, apellido_cliente, telefono_cliente, email_cliente, direccion_cliente, membresia_cliente} = req.query;
+    const  {nombre_cliente, apellido_cliente, telefono_cliente, email_cliente, direccion_cliente, membresia_cliente} = req.body;
     const {error,data} = await clienteController.create(nombre_cliente, apellido_cliente, telefono_cliente, email_cliente, direccion_cliente, membresia_cliente);
+    // res.json({error,data});
     res.redirect("/cliente");
-}
+}   
 
 async function updateForm(req, res){
     const id = req.params.id;
@@ -29,7 +30,7 @@ async function updateForm(req, res){
 
 async function update(req, res){
     const id = parseInt(req.params.id);
-    const  {nombre_cliente, apellido_cliente, telefono_cliente, email_cliente, direccion_cliente, membresia_cliente} = req.query;
+    const  {nombre_cliente, apellido_cliente, telefono_cliente, email_cliente, direccion_cliente, membresia_cliente} = req.body;
     const {error,data} = await clienteController.update(id, nombre_cliente, apellido_cliente, telefono_cliente, email_cliente, direccion_cliente, membresia_cliente);
     res.redirect("/cliente");
 }
