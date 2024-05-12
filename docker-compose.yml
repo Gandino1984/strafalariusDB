@@ -1,27 +1,17 @@
 version: '3'
 
 services:
-  db: 
+  db:
     image: mysql:8.0
     container_name: ${MYSQL_HOST}
     restart: unless-stopped
-  enviroment: 
-    MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-    MYSQL_USER: ${MYSQL_USER}
-    MYSQL_PASSWORD: ${MYSQL_PASSWORD}
-    MYSQL_DATABASE: ${MYSQL_DATABASE}
-  ports:
-    - ${MYSQL_PORT}:3306
-  volumes:
-    - .db/localDataStorage_strafalariusDB:/varlib/mysql
-    - ./db/init:/docker-entrypoint-initdb.d
-
-  node:
-    build: .
-    container_name: strafalarius_cont
-    restart: always
+    enviroment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
     ports:
-      - ${APP_PORT}:3000
+      - ${MYSQL_PORT}:3306
     volumes:
-      - .:/app
-      - /app/node_modules
+      - .db/containerDataStorage_strafalariusDB:/var/lib/mysql
+      - ./db/init:/docker-entrypoint-initdb.d
