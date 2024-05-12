@@ -23,9 +23,9 @@ async function create(req, res){
 }   
 
 async function updateForm(req, res){
-    const id = req.params.id;
-    const cliente = await clienteController.getById(id); 
-    res.render("cliente/update", {cliente});
+    const id = parseInt(req.params.id);
+    const {error, data:cliente} = await clienteController.getById(id); 
+    res.render("cliente/update", {error, cliente});
 }
 
 async function update(req, res){
