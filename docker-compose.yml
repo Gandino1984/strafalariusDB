@@ -17,7 +17,7 @@ services:
       - ./db/init:/docker-entrypoint-initdb.d
   backend:
     build: .
-    container_name: ${MYSQL_HOST}
+    container_name: ${APP_HOST}
     restart: unless-stopped
     ports:
       - ${APP_PORT}:3000
