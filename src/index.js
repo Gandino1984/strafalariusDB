@@ -23,6 +23,6 @@ app.use(express.urlencoded({extended:true})); //leer el body de llamadas POST y 
 app.use("/", router);
 // res.json({error,data});
 
-app.listen(process.env.APP_PORT, ()=>{
+app.listen(3000, ()=>{
     console.log("El servidor de la app está en marcha en el puerto = " + process.env.APP_PORT);
 })
