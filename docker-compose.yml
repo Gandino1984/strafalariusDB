@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  db: strafalarius_image
+  db: mysql:8.0
   container_name: strafalarius_cont
   restart: unless-stopped
   environment: 
