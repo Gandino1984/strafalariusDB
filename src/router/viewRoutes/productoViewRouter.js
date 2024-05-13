@@ -5,9 +5,17 @@ import productoViewController from "../../controllers/producto/productoViewContr
 const router = Router();    
 
 router.get("/", productoViewController.getAll);
+
+router.get("/new" , productoViewController.createForm);
+
 router.get("/create", productoViewController.create);
+
 router.get("/:id", productoViewController.getById);
-router.get("/:id/update", productoViewController.update); 
+
+router.get("/:id/update", productoViewController.updateForm); 
+
+router.get("/:id", productoViewController.update); 
+
 router.get("/:id/remove", productoViewController.remove); 
 
 

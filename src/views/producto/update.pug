@@ -1,0 +1,21 @@
+extends ../layout 
+
+block content 
+    if error
+        p(class="error")=error
+    if producto
+        h2 Modificar producto 
+        form(action="/producto/"+producto.id_producto, method="post")
+            label(for="nombre_producto") Nombre
+            input(id="nombre_producto" type="text" name="nombre_producto" value=producto.nombre_producto)
+            label(for="talla_producto") Talla 
+            input(id="talla_producto" type="text" name="talla_producto" value=producto.talla_producto)
+            label(for="color_producto") Color 
+            input(id="color_producto" type="text" name="color_producto" value=producto.color_producto)
+            label(for="estacion_producto") Estacion 
+            input(id="estacion_producto" type="text" name="estacion_producto" value=producto.estacion_producto)
+            label(for="precio_producto") Precio 
+            input(id="precio_producto" type="text" name="precio_producto" value=producto.precio_producto) 
+            label(for="descuento_producto") Descuento 
+            input(id="descuento_producto" type="text" name="descuento_producto" value=descuento.descuento_producto)
+            button(type="submit") GUARDAR
