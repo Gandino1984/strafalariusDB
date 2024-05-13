@@ -53,7 +53,6 @@ async function getById(id){
         return {error:"el cliente no existe!"};
     }
     return {data:cliente}
-
 }
 
 

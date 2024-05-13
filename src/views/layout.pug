@@ -1,5 +1,12 @@
-doctype html
 html 
     head
+        link(rel="stylesheet" href="./css/styles.css" type="text/css")
+        block title
+
     body
-        h1 Bienvenida a Strafalarius
+        include navbar
+        block content
+            h1(
+                class="layout-title"
+				id="titulo" 
+			) Bienvenida a Strafalarius!

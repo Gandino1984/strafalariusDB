@@ -8,7 +8,7 @@ async function getAll(req, res){
 async function getById(req, res){
     const id = req.params.id;   
     const {error, data} = await clienteController.getById(id);
-    res.render("cliente/show", {error,data});
+    res.render("cliente/show", {error,cliente:data});
 }
 
 async function createForm(req, res){
@@ -16,20 +16,21 @@ async function createForm(req, res){
 }
 
 async function create(req, res){
-    const  {nombre_cliente, apellido_cliente, telefono_cliente, email_cliente, direccion_cliente, membresia_cliente} = req.query;
+    const  {nombre_cliente, apellido_cliente, telefono_cliente, email_cliente, direccion_cliente, membresia_cliente} = req.body;
     const {error,data} = await clienteController.create(nombre_cliente, apellido_cliente, telefono_cliente, email_cliente, direccion_cliente, membresia_cliente);
+    // res.json({error,data});
     res.redirect("/cliente");
-}
+}   
 
 async function updateForm(req, res){
-    const id = req.params.id;
-    const cliente = await clienteController.getById(id); 
-    res.render("cliente/update", {cliente});
+    const id = parseInt(req.params.id);
+    const {error, data:cliente} = await clienteController.getById(id); 
+    res.render("cliente/update", {error, cliente});
 }
 
 async function update(req, res){
     const id = parseInt(req.params.id);
-    const  {nombre_cliente, apellido_cliente, telefono_cliente, email_cliente, direccion_cliente, membresia_cliente} = req.query;
+    const  {nombre_cliente, apellido_cliente, telefono_cliente, email_cliente, direccion_cliente, membresia_cliente} = req.body;
     const {error,data} = await clienteController.update(id, nombre_cliente, apellido_cliente, telefono_cliente, email_cliente, direccion_cliente, membresia_cliente);
     res.redirect("/cliente");
 }

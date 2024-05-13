@@ -1,0 +1,15 @@
+extends ../layout 
+
+block content 
+    if error
+        p(class="error")=error
+    if cliente
+        h2 Modificar cliente 
+        form(action="/cliente/"+cliente.id_cliente, method="post")
+            label(for="nombre_cliente") Nombre
+            input(id="nombre_cliente" type="text" name="nombre_cliente" value=cliente.nombre_cliente)
+            label(for="apellido_cliente") Apellido 
+            input(id="apellido_cliente" type="text" name="apellido_cliente" value=cliente.apellido_cliente)
+            label(for="direccion_cliente") Direccion 
+            input(id="direccion_cliente" type="text" name="direccion_cliente" value=cliente.direccion_cliente)
+            button(type="submit") GUARDAR
