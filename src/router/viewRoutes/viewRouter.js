@@ -11,7 +11,7 @@ import dotenv from "dotenv";
 dotenv.config();    
 
 router.use("/cliente", clienteViewRouter);
-router.use("producto", productoViewRouter)
+router.use("/producto", productoViewRouter)
 
 
 router.get("/", (req, res)=>{ 
