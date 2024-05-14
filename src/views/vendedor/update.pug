@@ -1,0 +1,15 @@
+extends ../layout
+
+block content 
+    if error 
+        p(class="error")= error
+    if vendedor
+        form(action="/vendedor/"+vendedor.id_vendedor, method="post") 
+            label(for="name") Nombre 
+            input(id="name" type="text" name="name" value=vendedor.name) 
+            label(for="origen") Origen
+            input#origen(type="text", name="origen" value=vendedor.origen_vendedor)
+            label(for="categoria") Categoria
+            input#categoria(type="checkbox", name="categoria" checked=vendedor.categoria_vendedor ? true:false)  
+            button(type="submit") Guardar
+
