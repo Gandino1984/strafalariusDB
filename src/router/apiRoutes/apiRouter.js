@@ -6,11 +6,15 @@ import { Router } from "express";
 const router = Router();
 
 import clienteApiRouter from "./clienteApiRouter.js"
+import productoApiRouter from "./productoApiRouter.js"
 
 
 dotenv.config();    
 
 router.use("/cliente", clienteApiRouter);
+
+router.use("/producto", productoApiRouter);
+
 
 //esto maneja la ruta root de la app 
 router.get("/", (req, res)=>{ 
