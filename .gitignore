@@ -129,6 +129,4 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-db
-
-
+db/dataStorage_strafalariusDB
