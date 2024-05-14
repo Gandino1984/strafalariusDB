@@ -1,0 +1,19 @@
+extends ../layout
+
+block content
+    h1 Lista de usuarios
+    // la variable error del {error, data} se carga en el pug al llamar 
+    // al res.render en el usuarioViewController
+    if error
+        p(class="error")= error
+    if data
+        ul 
+            each usuario in data
+                li
+                    a(href="/usuario/"+usuario.id_usuario)= usuario.nombre_usuario
+                    a(href=`/usuario/${usuario.id_usuario}/update`) 
+                        button Editar
+                    form(action=`/usuario/${usuario.id_usuario}/remove`, method="post")
+                        button(type="submit") Borrar 
+    a(href="/usuario/new")
+        button Nuevo

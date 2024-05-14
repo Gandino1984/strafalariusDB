@@ -1,0 +1,12 @@
+extends ../layout
+
+block content
+    if error
+        p(class="error")= error
+    if usuario
+        h2 Eliminar usuario
+        p ¿Está seguro que desea eliminar al usuario #{usuario.nombre_usuario} #{usuario.apellido_usuario}?
+        form(action="/usuario/"+usuario.id_usuario+"/remove", method="post")
+            button(type="submit") Eliminar
+    a(href="/usuario")
+        button Cancelar
