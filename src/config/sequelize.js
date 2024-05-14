@@ -1,20 +1,5 @@
 import {Sequelize} from "sequelize";
-<<<<<<< HEAD
 import dotenv from "dotenv"
-
-dotenv.config();
-
-const sequelize = new Sequielize(
-    process.env.MTSQL_DATABASE,
-    process.env.MYSQL_USER,
-    procces.env.MYSQL_PASSWORD,
-    {
-        host: process.env.MYSQL_HOST,
-        port: 3306
-    }
-)
-=======
-import dotenv from "dotenv";
 
 dotenv.config();
 
@@ -47,4 +32,3 @@ async function authenticate(){
 authenticate();
 
 export default sequelize;
->>>>>>> dev
