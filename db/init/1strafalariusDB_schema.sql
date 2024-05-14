@@ -36,7 +36,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `strafalariusDB`.`producto` (
   `id_producto` INT NOT NULL AUTO_INCREMENT,
   `nombre_producto`VARCHAR(45) NOT NULL,
-  `talla_producto` VARCHAR(5) NOT NULL,
+  `talla_producto` VARCHAR(10) NOT NULL,
   `color_producto` VARCHAR(20) NOT NULL,
   `estacion_producto` VARCHAR(45) NOT NULL,
   `precio_producto` FLOAT NOT NULL,
