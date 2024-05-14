@@ -1,0 +1,18 @@
+extends ../layout
+
+block content 
+    h2 Crear producto nuevo
+    form(action="/producto", method="post")
+        label(for="nombre_producto") Nombre
+        input(id="nombre_producto" type="text" name="nombre_producto")
+        label(for="talla_producto") Talla 
+        input(id="talla_producto" type="text" name="talla_producto")
+        label(for="color_producto") Color
+        input(id="color_producto" type="text" name="color_producto")
+        label(id="estacion_producto") Estacion 
+        input(id="estacion_producto" type="text" name="estacion_producto")
+        label(id="precio_producto") Precio 
+        input(id="precio_producto" type="text" name="precio_producto")
+        label(id="descuento_producto") Descuento 
+        input(id="descuento_producto" type="text" name="descuento_producto")
+        button(type="submit") CREAR NUEVO 
