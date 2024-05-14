@@ -6,8 +6,8 @@ block content
     if vendedor 
         h2= "Id:" + vendedor.nombre_vendedor + " " + vendedor.origen_vendedor + " " + vendedor.categoria_vendedor 
         if vendedor.origen_vendedor
-        p Origen: #{vendedor.origen_vendedor}
         if vendedor.categoria_vendedor
+        p Origen: #{vendedor.origen_vendedor}
         p Categoria: #{vendedor.categoria_vendedor==1 ? 'si' : 'no'}            
     a(href="/vendedor")
         button Volver
