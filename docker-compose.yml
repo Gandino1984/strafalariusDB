@@ -1,9 +1,7 @@
-version: '3'
-
 services:
   db: 
     image: mysql:8.0
-    container_name: strafalarius_cont
+    container_name: ${MYSQL_HOST}
     restart: unless-stopped
     environment: 
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
@@ -11,7 +9,7 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
     ports:
-      - ${MYSQL_PORT}:3306
+      - ${MYSQL_PORT}:3309
     volumes:
       - ./db/dataStorage_strafalariusDB:/var/lib/mysql
       - ./db/init:/docker-entrypoint-initdb.d

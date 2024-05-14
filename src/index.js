@@ -1,5 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
+import sequelize from "./config/sequelize.js";
 
 dotenv.config();
 
@@ -25,4 +26,5 @@ app.use("/", router);
 
 app.listen(3000, ()=>{
     console.log("El servidor de la app está en marcha en el puerto = " + process.env.APP_PORT);
+    console.log("El servidor del backend está en marcha en el puerto = " + process.env.MYSQL_PORT);
 })
