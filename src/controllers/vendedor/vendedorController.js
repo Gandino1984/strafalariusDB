@@ -4,25 +4,25 @@ const vendedores = [
     {
         "id_vendedor":1,
         "nombre_vendedor": "Sara", 
-        "origen_vendedor": " ",
+        "origen_vendedor": "Barcelona",
         "categoria_vendedor": null
     },
     {
         "id_vendedor":2,
         "nombre_vendedor": "Raquel", 
-        "origen_vendedor": " ",
+        "origen_vendedor": "Bilbao",
         "categoria_vendedor": null
     },    
     {
         "id_vendedor":3,
         "nombre_vendedor": "Venancio", 
-        "origen_vendedor": " ",
+        "origen_vendedor": "Valencia",
         "categoria_vendedor": null
     },    
     {
         "id_vendedor":4,
         "nombre_vendedor": "Rafa", 
-        "origen_vendedor": " ",
+        "origen_vendedor": "Tegucigalpa",
         "categoria_vendedor": null
     },
 ];
