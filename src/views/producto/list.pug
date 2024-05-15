@@ -1,0 +1,19 @@
+extends ../layout
+
+block content
+    h1 Lista de productos
+    // la variable error del {error, data} se carga en el pug al llamar 
+    //al res.render en el productoViewController
+    if error
+        p(class="error")=error
+    if data
+        ul 
+            each producto in data
+                li
+                    a(href="/producto/"+producto.id_producto)=producto.nombre_producto
+                    a(href=`producto/${producto.id_producto}/update`) 
+                        button Editar
+                    form(action=`producto/${producto.id_producto}/remove`, method="post")
+                        button(type="submit") Borrar 
+    a(href="/producto/new")
+        button Nuevo
