@@ -28,7 +28,7 @@ const vendedores = [
     },
 ];
 */
-import vendedorModel from "./models/vendedorModel.js";
+import vendedorModel from "../models/vendedorModel.js";
 
 async function getAll(){
     try{
