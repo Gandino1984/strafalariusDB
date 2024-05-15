@@ -1,9 +1,7 @@
-//importación nombrada solo del objeto Router de express
+import { Router } from "express";
 import dotenv from "dotenv";
 
 dotenv.config();    
-
-import { Router } from "express";
 
 import apiRouter from "./apiRoutes/apiRouter.js";
 
