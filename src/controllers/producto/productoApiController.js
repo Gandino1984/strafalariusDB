@@ -2,7 +2,7 @@ import clienteController from "./productoController.js";
 
 async function getAll(req, res){
     const {error, data} = await productoController.getAll();
-    res.json({error,data});
+    res.json({error,data}); 
 };
 
 async function getById(req, res){
