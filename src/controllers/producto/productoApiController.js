@@ -1,4 +1,4 @@
-import clienteController from "./productoController.js";
+import productoController from "./productoController.js";
 
 async function getAll(req, res){
     const {error, data} = await productoController.getAll();

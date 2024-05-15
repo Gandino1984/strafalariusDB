@@ -1,47 +1,5 @@
 import clienteModel from "./models/clienteModel.js";
 
-// //esto es para falsear la base de datos hasta que la conectemos a la app
-// const clientes = [
-
-//     {
-//         "id_cliente":1,
-//         "nombre_cliente": "german", 
-//         "apellido_cliente": "andino",
-//         "telefono_cliente": null,
-//         "email_cliente": null,
-//         "direccion_cliente": "ciudad jardín",
-//         "membresia_cliente": "plata",
-//     },
-//     {
-//         "id_cliente":2,
-//         "nombre_cliente": "lander", 
-//         "apellido_cliente": "apellido",
-//         "telefono_cliente": "123456789", 
-//         "email_cliente": null,
-//         "direccion_cliente": "Barakaldo",
-//         "membresia_cliente": "oro",
-//     },
-//     {
-//         "id_cliente":3,
-//         "nombre_cliente": "Ani", 
-//         "apellido_cliente": "apellido",
-//         "telefono_cliente": null,
-//         "email_cliente": "email@ani.com",
-//         "direccion_cliente": "Indautxu",
-//         "membresia_cliente": "bronce",
-//     },
-//     {
-//         "id_cliente":4,
-//         "nombre_cliente": "Jhon", 
-//         "apellido_cliente": "apellido",
-//         "telefono_cliente": null,
-//         "email_cliente": "email@jhon.com",
-//         "direccion_cliente": "Santutxu",
-//         "membresia_cliente": "plata",
-//     }
-
-// ];
-
 async function getAll(){
     try{
         const cliente = await clienteModel.findAll();
