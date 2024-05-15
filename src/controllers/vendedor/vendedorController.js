@@ -28,6 +28,8 @@ const vendedores = [
     },
 ];
 */
+import vendedorModel from "./models/vendedorModel.js";
+
 async function getAll(){
     try{
         const vendedor = await vendedorModel.findAll();
