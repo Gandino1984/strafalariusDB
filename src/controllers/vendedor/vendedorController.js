@@ -1,3 +1,6 @@
+import vendedorModel from "../../models/vendedorModel.js";
+
+
 //esto es para falsear la base de datos hasta que la conectemos a la app
 /*
 const vendedores = [
@@ -28,8 +31,6 @@ const vendedores = [
     },
 ];
 */
-import vendedorModel from "../models/vendedorModel.js";
-
 async function getAll(){
     try{
         const vendedor = await vendedorModel.findAll();
