@@ -1,70 +1,49 @@
-const productos = [
-
-    {
-        "id_producto":1,
-        "nombre_producto": "camiseta", 
-        "talla_producto": "M",
-        "color_producto": "negro",
-        "estacion_producto": "primavera",
-        "precio_producto": "25",
-        "descuento_producto": null,
-    },
-    {
-        "id_producto":2,
-        "nombre_producto": "falda", 
-        "talla_producto": "S",
-        "color_producto": "Rojo",
-        "estacion_producto": "verano",
-        "precio_producto": "40",
-        "descuento_producto": "10",
-    },
-    {
-        "id_producto":3,
-        "nombre_producto": "Zapatos", 
-        "talla_producto": "42",
-        "color_producto": "Blanco",
-        "estacion_producto": null,
-        "precio_producto": "75",
-        "descuento_producto": "20",
-    },
-
-
-];
+import productoModel from "./models/productoModel.js";
 
 async function getAll(){
-
-    return {data:productos};
-
+    try{
+        const producto = await productoModel.findAll();
+        console.log("productos",producto);
+        return {data:producto};
+    }
+    catch{
+        console.error(error);
+        return {error:error};
+    }
 }
 
 async function getById(id){
-
-    const producto = productos.find(producto => producto.id_producto == id);
-    if(!producto){
-        return {error:"el producto no existe!"};
+    try{
+        const producto = await productoModel.findByPk(id);
+        if(!producto){
+            return {error:"el producto no existe!"};
+        }
+        return {data:producto}
     }
-    return {data:producto}
-
+    catch(error){
+        console.error(error);
+        return {error};
+    }
 }
 
-
 async function create(productoData){
-    const {nombre_producto, talla_producto, color_producto, estacion_producto, precio_producto, descuento_producto} = productoData;
-    if(!nombre_producto){
-        return{error:"los productos deben tener nombre"};
+    try{
+        const newProducto = await productoModel.create(productoData);
+        console.log("new producto", newProducto);
+        return {data:newProducto};
     }
-    const maxID = Math.max(...productos.map(producto => producto.id_producto));
-    const newID = maxID + 1;
-    const newProducto = {id_producto:newID, nombre_producto, talla_producto, color_producto, estacion_producto, precio_producto, descuento_producto};
-    productos.push(newProducto);
-    return {data:newProducto};
+    catch(error){
+        console.error(error);
+        return(error);
+    }
 }
 
 async function update(id, productoData){
+    try{
 
     const {nombre_producto, talla_producto, color_producto, estacion_producto, precio_producto, descuento_producto} = productoData;
     
-    const producto = productos.find(producto=>producto.id_producto === id);
+    const producto = await productoModel.findByPk (id);
     
     if(!producto){
         return {error:"no se puede modificar un producto inexistente!"};
@@ -86,17 +65,26 @@ async function update(id, productoData){
     }
     if(descuento_producto){
         producto.descuento_producto = descuento_producto;
-    }   
-    return {data:producto};
+    }
+
+    const newProducto= await productoModel.update(id,producto);
+
+    return {data:newProducto};
+}
+catch(error){
+    console.error(error);
+    return error;
+}
 }
 
 async function remove(id){
-    const productoIndex = productos.findIndex(producto=>producto.id_producto == id);
-    if(productoIndex == -1){
-        return {error:"no se puede borrar producto inexistente!"};
+    try{
+        const result = await productoModel.remove(id);
+        return {data:result};
     }
-    const deletedProducto = productos.splice(productoIndex,1);
-    return {data:deletedProducto};
+    catch(error){
+        console.error(error);
+    }
 }
 
 export{
