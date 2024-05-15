@@ -31,7 +31,7 @@ const productos = [
 
 ];
 
-async function getAll(){
+async function getAll(){    
 
     return {data:productos};
 
