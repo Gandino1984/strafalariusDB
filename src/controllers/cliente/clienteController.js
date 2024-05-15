@@ -1,4 +1,4 @@
-import clienteModel from "./models/clienteModel.js";
+import clienteModel from "../models/clienteModel.js";
 
 // //esto es para falsear la base de datos hasta que la conectemos a la app
 // const clientes = [
