@@ -3,7 +3,6 @@ import dotenv from "dotenv"
 
 dotenv.config();
 
-
 //crear conexión
 const sequelize = new Sequelize(
     process.env.MYSQL_DATABASE,
