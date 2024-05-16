@@ -14,13 +14,13 @@ async function getAll(){
 async function getById(id){
     try{
     const vendedor = await vendedorModel.findByPk(id)
-    if(!cliente){
+    if(!vendedor){
         return {error:"el vendedor no existe"};
     }
     return {data:vendedor}
     }
     catch(error){
-        console.errorr(error);
+        console.error(error);
         return{error};
     }
 }
@@ -41,24 +41,12 @@ async function create(vendedorData){
 async function update(id, vendedorData){
     try{
         const {nombre_vendedor, origen_vendedor, categoria_vendedor} = vendedorData;
-    
-        const vendedor = await vendedorModel.findByPk (id);
+        const vendedor = await vendedorModel.findByPk(id);
     
         if(!vendedor){
             return {error:"no se puede modificar un vendedor inexistente!"};
         }
-        if(nombre_vendedor){
-            vendedor.nombre_vendedor = nombre_vendedor;
-        }
-        if(origen_vendedor){
-            vendedor.origen_vendedor = origen_vendedor;
-        }
-        if(categoria_vendedor){
-            vendedor.categoria_vendedor = categoria_vendedor;
-        }
-
-        const newVendedor = await vendedorModel.update(id,vendedor);
-
+        const newVendedor = await vendedorModel.update(vendedorData, {where:{id_vendedor:id}});
         return {data:newVendedor};
 
     }

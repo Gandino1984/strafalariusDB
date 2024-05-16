@@ -2,10 +2,10 @@ extends ../layout
 
 block content 
     form(action="/vendedor", method="post") 
-        label(for="name")  Nombre 
-        input(id="name" type="text" name="name") 
-        label(for="origen")  Origen
-        input#origen(type="text", name="origen")
-        label(for="categoria")  Categoria
-        input#categoria(type="checkbox", name="categoria")  
-        button(type="submit") Crear
+        label(for="nombre_vendedor")  Nombre 
+        input(id="nombre_vendedor" type="text" name="nombre_vendedor") 
+        label(for="origen_vendedor")  Origen
+        input(id="origen_vendedor" type="text", name="origen_vendedor")
+        label(for="categoria_vendedor")  Categoria
+        input(id="categoria_vendedor" type="checkbox", name="categoria_vendedor")  
+        button(type="submit") CREAR NUEVO
