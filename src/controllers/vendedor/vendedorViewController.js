@@ -16,21 +16,22 @@ async function createForm(req, res){
 }
 
 async function create(req, res){
-    const  {nombre_vendedor, origen_vendedor, categoria_vendedor} = req.query;
+    const {nombre_vendedor, origen_vendedor, categoria_vendedor} = req.query;
     const {error,data} = await vendedorController.create(nombre_vendedor, origen_vendedor, categoria_vendedor);
     res.redirect("/vendedor");
 }
 
 async function updateForm(req, res){
     const id = req.params.id;
-    const vendedor = await vendedorController.getById(id); 
+    const {data:vendedor} = await vendedorController.getById(id); 
     res.render("vendedor/update", {vendedor});
 }
 
 async function update(req, res){
     const id = parseInt(req.params.id);
-    const  {nombre_vendedor, origen_vendedor, categoria_vendedor} = req.query;
-    const {error,data} = await vendedorController.update(id, nombre_vendedor, origen_vendedor, categoria_vendedor);
+    const {nombre_vendedor, origen_vendedor, categoria_vendedor} = req.body;
+    const categoria = categoria_vendedor === "on" ? 1 : 0;
+    const {error,data} = await vendedorController.update(id, {nombre_vendedor, origen_vendedor, categoria_vendedor:categoria});
     res.redirect("/vendedor");
 }
 

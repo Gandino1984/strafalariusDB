@@ -22,9 +22,11 @@ async function create(req, res){
 }
 
 async function updateForm(req, res){
+    const id = parseInt(req.params.id);
     const id = req.params.id;
     const producto = await productoController.getById(id); 
     res.render("producto/update", {producto});
+    
 }
 
 async function update(req, res){

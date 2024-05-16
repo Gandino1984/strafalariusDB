@@ -9,7 +9,7 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       MYSQL_DATABASE: ${MYSQL_DATABASE}
     ports:
-      - ${MYSQL_PORT}:3309
+      - ${MYSQL_PORT}:3306
     volumes:
       - ./db/dataStorage_strafalariusDB:/var/lib/mysql
       - ./db/init:/docker-entrypoint-initdb.d
