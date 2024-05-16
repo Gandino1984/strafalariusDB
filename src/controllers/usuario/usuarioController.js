@@ -16,6 +16,8 @@ const usuarios = [
     }
 ];
 
+import usuarioModel from "../../models/usuarioModel.js";
+
 async function getAll() {
     return { data: usuarios };
 }
