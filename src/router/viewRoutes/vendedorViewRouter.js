@@ -1,6 +1,7 @@
 import { Router } from "express";
 
 import vendedorViewController from "../../controllers/vendedor/vendedorViewController.js";
+import vendedorController from "../../controllers/vendedor/vendedorController.js";
 
 const router = Router();    
 
@@ -14,7 +15,7 @@ router.get("/:id", vendedorViewController.getById);
 
 router.get("/:id/update", vendedorViewController.updateForm); 
 
-router.get("/:id", vendedorViewController.update); 
+router.post("/:id",vendedorViewController.update)
 
 router.get("/:id/remove", vendedorViewController.remove); 
 

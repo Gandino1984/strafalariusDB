@@ -3,10 +3,9 @@ import productoModel from "../../models/productoModel.js";
 async function getAll(){
     try{
         const producto = await productoModel.findAll();
-        console.log("productos",producto);
         return {data:producto};
     }
-    catch{
+    catch(error){
         console.error(error);
         return {error:error};
     }
@@ -29,7 +28,6 @@ async function getById(id){
 async function create(productoData){
     try{
         const newProducto = await productoModel.create(productoData);
-        console.log("new producto", newProducto);
         return {data:newProducto};
     }
     catch(error){
