@@ -130,3 +130,5 @@ dist
 .pnp.*
 
 db/dataStorage_strafalariusDB
+
+.DS_Store
