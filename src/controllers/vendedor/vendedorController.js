@@ -1,91 +1,69 @@
-//esto es para falsear la base de datos hasta que la conectemos a la app
-const vendedores = [
-
-    {
-        "id_vendedor":1,
-        "nombre_vendedor": "Sara", 
-        "origen_vendedor": " ",
-        "categoria_vendedor": null
-    },
-    {
-        "id_vendedor":2,
-        "nombre_vendedor": "Raquel", 
-        "origen_vendedor": " ",
-        "categoria_vendedor": null
-    },    
-    {
-        "id_vendedor":3,
-        "nombre_vendedor": "Venancio", 
-        "origen_vendedor": " ",
-        "categoria_vendedor": null
-    },    
-    {
-        "id_vendedor":4,
-        "nombre_vendedor": "Rafa", 
-        "origen_vendedor": " ",
-        "categoria_vendedor": null
-    },
-];
+import vendedorModel from "../../models/vendedorModel.js";
 
 async function getAll(){
-
-    return {data:vendedores};
-
+    try{
+        const vendedor = await vendedorModel.findAll();
+        return {data:vendedor};
+    }
+    catch(error){
+        console.error(error);
+        return {error:error}
+    }
 }
 
 async function getById(id){
-
-    const vendedor = vendedores.find(vendedor => vendedor.id_vendedor == id);
+    try{
+    const vendedor = await vendedorModel.findByPk(id)
     if(!vendedor){
-        return {error:"el vendedor no existe!"};
+        return {error:"el vendedor no existe"};
     }
     return {data:vendedor}
-
-}
-
-//vendedorData es un objeto que tiene el nombre, origen y categoria del vendedor
-async function create(vendedorData){
-    const {nombre_vendedor, origen_vendedor, categoria_vendedor,} = vendedorData;
-    //get max id del arreglo que falsea la base datos. Esto cambiará cuando conectemos la DB
-    if(!nombre_vendedor){
-        return{error:"los vendedores deben tener nombre"};
     }
-    const maxID = Math.max(...vendedores.map(vendedor => vendedor.id_vendedor));
-    const newID = maxID + 1;
-    const newVendedor = {id_vendedor:newID, nombre_vendedor, origen_vendedor, categoria_vendedor};
-    vendedores.push(newVendedor);
-    return {data:newVendedor};
+    catch(error){
+        console.error(error);
+        return{error};
+    }
 }
+
+async function create(vendedorData){
+    try{
+        const newVendedor = await vendedorModel.create(vendedorData);
+        return {data:newVendedor};
+    }
+    catch(error){
+        console.error(error);
+        return(error);
+    }
+}
+
 
 //vendedorData es un objeto que tiene el nombre, origen y categoria del vendedor
 async function update(id, vendedorData){
+    try{
+        const {nombre_vendedor, origen_vendedor, categoria_vendedor} = vendedorData;
+        const vendedor = await vendedorModel.findByPk(id);
+    
+        if(!vendedor){
+            return {error:"no se puede modificar un vendedor inexistente!"};
+        }
+        const newVendedor = await vendedorModel.update(vendedorData, {where:{id_vendedor:id}});
+        return {data:newVendedor};
 
-    const {nombre_vendedor, origen_vendedor, categoria_vendedor} = vendedorData;
-    
-    const vendedor = vendedores.find(vendedor=>vendedor.id_vendedor === id);
-    
-    if(!vendedor){
-        return {error:"no se puede modificar un vendedor inexistente!"};
     }
-    if(nombre_vendedor){
-        vendedor.nombre_vendedor = nombre_vendedor;
+    catch(error){
+        console.error(error);
+        return error;
     }
-    if(origen_vendedor){
-        vendedor.origen_vendedor = origen_vendedor;
-    }
-    if(categoria_vendedor){
-        vendedor.categoria_vendedor = categoria_vendedor;
-    }
-    return {data:vendedor};
 }
 
 async function remove(id){
-    const vendedorIndex = vendedores.findIndex(vendedor=>vendedor.id_vendedor == id);
-    if(vendedorIndex == -1){
-        return {error:"no se puede borrar vendedor inexistente!"};
+    try{
+        const result = await vendedorModel.remove(id);
+        return {data:result};
     }
-    const deletedVendedor = vendedores.splice(vendedorIndex,1);
-    return {data:deletedVendedor};
+    catch(error){
+        console.error(error);
+    }
 }
 
 export{

@@ -1,6 +1,8 @@
 import { Router } from "express";
 
 import productoViewController from "../../controllers/producto/productoViewController.js";
+import productoController from "../../controllers/producto/productoController.js";
+
 
 const router = Router();    
 
