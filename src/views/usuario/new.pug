@@ -1,0 +1,10 @@
+extends ../layout
+
+block content 
+    h2 Crear usuario nuevo
+    form(action="/usuario", method="post")
+        label(for="nombre_usuario") Nombre
+        input(id="nombre_usuario" type="text" name="nombre_usuario")
+        label(for="apellido_usuario") Apellido 
+        input(id="apellido_usuario" type="text" name="apellido_usuario")
+        button(type="submit") CREAR NUEVO

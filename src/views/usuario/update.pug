@@ -1,0 +1,15 @@
+extends ../layout 
+
+block content 
+    if error
+        p(class="error")= error
+    if usuario
+        h2 Modificar usuario
+        form(action="/usuario/"+usuario.id_usuario, method="post")
+            label(for="nombre_usuario") Nombre
+            input(id="nombre_usuario" type="text" name="nombre_usuario" value=usuario.nombre_usuario)
+            label(for="apellido_usuario") Apellido 
+            input(id="apellido_usuario" type="text" name="apellido_usuario" value=usuario.apellido_usuario)
+            label(for="direccion_usuario") Dirección 
+            input(id="direccion_usuario" type="text" name="direccion_usuario" value=usuario.direccion_usuario)
+            button(type="submit") GUARDAR

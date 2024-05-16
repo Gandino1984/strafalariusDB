@@ -102,6 +102,17 @@ CREATE TABLE IF NOT EXISTS `strafalariusDB`.`detalleCompra` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Table `strafalariusDB`.`usuario`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `strafalariusDB`.`usuario` (
+  `id_usuario` INT NOT NULL AUTO_INCREMENT,
+  `user_usuario` VARCHAR(50) NOT NULL,
+  `password_usuario` VARCHAR(100) NOT NULL,
+  `rol_usuario` VARCHAR(50) NOT NULL,
+  PRIMARY KEY (`id_usuario`))
+ENGINE = InnoDB;
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;

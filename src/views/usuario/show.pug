@@ -1,0 +1,13 @@
+extends ../layout
+
+block content 
+    if error
+        p(class="error")= error 
+    if usuario 
+        h2="Id:" + usuario.id_usuario + " " + usuario.nombre_usuario + " " + usuario.apellido_usuario
+        if usuario.apellido_usuario
+        if usuario.membresia_usuario
+            p Tipo de membresía: #{usuario.membresia_usuario}    
+            p Su dirección es: #{usuario.direccion_usuario}
+    a(href="/usuario")
+        button Volver
