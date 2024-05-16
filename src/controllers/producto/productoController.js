@@ -6,7 +6,7 @@ async function getAll(){
         console.log("productos",producto);
         return {data:producto};
     }
-    catch{
+    catch(error){
         console.error(error);
         return {error:error};
     }

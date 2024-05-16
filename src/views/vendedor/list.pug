@@ -9,10 +9,10 @@ block content
         ul
             each vendedor in data 
                 li
-                    a(href="/vendedor/"+vendedor.vendedor_id)= vendedor.name
-                    a(href=`/vendedor/${vendedor.vendedor_id}/update`) 
+                    a(href="/vendedor/"+vendedor.id_ vendedor)= vendedor.nombre_vendedor
+                    a(href=`/vendedor/${vendedor.id_vendedor}/update`) 
                         button Editar
-                    form(action=`/vendedor/${vendedor.vendedor_id}/remove`, method="post") 
+                    form(action=`/vendedor/${vendedor.id_vendedor}/remove`, method="post") 
                         button(type="submit") Borrar
     a(href="/vendedor/new")
         button Nuevo
