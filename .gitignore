@@ -133,6 +133,6 @@ db/dataStorage_strafalariusDB
 
 .DS_Store
 
-docker-compose-yml
+docker-compose.yml
 
 sequelize.js
