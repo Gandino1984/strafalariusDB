@@ -2,6 +2,7 @@ import { DataTypes } from "sequelize";
 import sequelize from "../config/sequelize.js";
 
 const vendedorModel = sequelize.define("vendedor",
+
     {
         id_vendedor:{
             type: DataTypes.INTEGER.UNSIGNED,

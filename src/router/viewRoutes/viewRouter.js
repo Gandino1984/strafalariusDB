@@ -6,9 +6,9 @@ dotenv.config();
 
 const router = Router();
 
-import clienteViewRouter from "./clienteViewRouter.js"
-import productoViewRouter from "./productoViewRouter.js"
-import vendedorViewRouter from "./vendedorViewRouter.js"
+import clienteViewRouter from "./clienteViewRouter.js";
+import productoViewRouter from "./productoViewRouter.js";
+import vendedorViewRouter from "./vendedorViewRouter.js";
 
 
 router.use("/cliente", clienteViewRouter);

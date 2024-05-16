@@ -1,46 +1,14 @@
 import vendedorModel from "../../models/vendedorModel.js";
 
-//esto es para falsear la base de datos hasta que la conectemos a la app
-/*
-const vendedores = [
-
-    {
-        "id_vendedor":1,
-        "nombre_vendedor": "Sara", 
-        "origen_vendedor": "Barcelona",
-        "categoria_vendedor": null
-    },
-    {
-        "id_vendedor":2,
-        "nombre_vendedor": "Raquel", 
-        "origen_vendedor": "Bilbao",
-        "categoria_vendedor": null
-    },    
-    {
-        "id_vendedor":3,
-        "nombre_vendedor": "Venancio", 
-        "origen_vendedor": "Valencia",
-        "categoria_vendedor": null
-    },    
-    {
-        "id_vendedor":4,
-        "nombre_vendedor": "Rafa", 
-        "origen_vendedor": "Tegucigalpa",
-        "categoria_vendedor": null
-    },
-];
-*/
 async function getAll(){
     try{
         const vendedor = await vendedorModel.findAll();
-        console.log("vendedores",vendedor);
         return {data:vendedor};
     }
-    catch{
+    catch(error){
         console.error(error);
         return {error:error}
     }
-
 }
 
 async function getById(id){
@@ -49,6 +17,7 @@ async function getById(id){
     if(!cliente){
         return {error:"el vendedor no existe"};
     }
+    return {data:vendedor}
     }
     catch(error){
         console.errorr(error);
@@ -59,7 +28,6 @@ async function getById(id){
 async function create(vendedorData){
     try{
         const newVendedor = await vendedorModel.create(vendedorData);
-        console.log("new vendedor", newVendedor);
         return {data:newVendedor};
     }
     catch(error){
@@ -67,6 +35,7 @@ async function create(vendedorData){
         return(error);
     }
 }
+
 
 //vendedorData es un objeto que tiene el nombre, origen y categoria del vendedor
 async function update(id, vendedorData){
