@@ -3,7 +3,6 @@ import clienteModel from "../../models/clienteModel.js";
 async function getAll(){
     try{
         const cliente = await clienteModel.findAll();
-        console.log("clientes",cliente);
         return {data:cliente};
     }
     catch(error){
@@ -29,7 +28,6 @@ async function getById(id){
 async function create(clienteData){
     try{
         const newCliente = await clienteModel.create(clienteData);
-        console.log("new cliente", newCliente);
         return {data:newCliente};
     }
     catch(error){
@@ -44,7 +42,7 @@ async function update(id, clienteData){
     try{
         const {nombre_cliente, apellido_cliente, telefono_cliente, email_cliente, direccion_cliente, membresia_cliente} = clienteData;
         
-        const cliente = await clienteModel.findByPk (id);
+        const cliente = await clienteModel.findByPk(id);
         
         if(!cliente){
             return {error:"no se puede modificar un cliente inexistente!"};
