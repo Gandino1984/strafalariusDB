@@ -16,8 +16,8 @@ async function createForm(req, res){
 }
 
 async function create(req, res){
-    const  {nombre_usuario, contraseña} = req.body;
-    const {error, data} = await usuarioController.create(nombre_usuario, contraseña);
+    const  {nombre_usuario, password_usuario} = req.query;
+    const {error, data} = await usuarioController.create(nombre_usuario, password_usuario);
     res.redirect("/usuario");
 }   
 
@@ -29,14 +29,14 @@ async function updateForm(req, res){
 
 async function update(req, res){
     const id = parseInt(req.params.id);
-    const  {nombre_usuario, contraseña} = req.body;
-    const {error, data} = await usuarioController.update(id, nombre_usuario, contraseña);
+    const  {nombre_usuario, password_usuario} = req.body;
+    const {error, data} = await usuarioController.update(id, nombre_usuario, password_usuario);
     res.redirect("/usuario");
 }
 
 async function remove(req, res){
     const id = parseInt(req.params.id);
-    const {error, data} = await usuarioController.remove(id);
+    const {error, data} = await usuarioController.remove(id, nombre_usuario, password_usuario);
     res.redirect("/usuario");
 }
 

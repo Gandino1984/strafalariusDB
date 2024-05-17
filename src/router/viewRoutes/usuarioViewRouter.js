@@ -8,13 +8,13 @@ router.get("/", usuarioViewController.getAll);
 
 router.get("/new", usuarioViewController.createForm);
 
-router.post("/", usuarioViewController.create);
+router.post("/create", usuarioViewController.create);
 
 router.get("/:id", usuarioViewController.getById);
 
 router.get("/:id/update", usuarioViewController.updateForm);
 
-router.post("/:id/update", usuarioViewController.update);
+router.post("/:id", usuarioViewController.update);
 
 router.get("/:id/remove", usuarioViewController.remove);
 

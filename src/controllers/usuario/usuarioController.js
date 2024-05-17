@@ -18,55 +18,80 @@ const usuarios = [
 
 import usuarioModel from "../../models/usuarioModel.js";
 
-async function getAll() {
-    return { data: usuarios };
+async function getAll(){
+    try{
+        const usuario = await usuarioModel.findAll();
+        return {data:usuario};
+    }
+    catch(error){
+        console.error(error);
+        return {error:error};
+    }
 }
 
-async function getById(id) {
-    const usuario = usuarios.find(usuario => usuario.id_usuario == id);
-    if (!usuario) {
-        return { error: "El usuario no existe." };
+async function getById(id){
+    try{
+        const usuario = await usuarioModel.findByPk(id);
+        if(!producto){
+            return {error:"el usuario no existe!"};
+        }
+        return {data:usuario}
     }
-    return { data: usuario };
+    catch(error){
+        console.error(error);
+        return {error};
+    }
 }
 
-async function create(usuarioData) {
-    const { nombre_usuario, contraseña } = usuarioData;
-    if (!nombre_usuario || !contraseña) {
-        return { error: "El nombre de usuario y la contraseña son obligatorios." };
+async function create(usuarioData){
+    try{
+        const newUsuario = await usuarioModel.create(usuarioData);
+        return {data:newUsuario};
     }
-    const maxID = Math.max(...usuarios.map(usuario => usuario.id_usuario));
-    const newID = maxID + 1;
-    const newUsuario = { id_usuario: newID, nombre_usuario, contraseña };
-    usuarios.push(newUsuario);
-    return { data: newUsuario };
+    catch(error){
+        console.error(error);
+        return(error);
+    }
 }
 
-async function update(id, usuarioData) {
-    const { nombre_usuario, contraseña } = usuarioData;
-    const usuario = usuarios.find(usuario => usuario.id_usuario === id);
-    if (!usuario) {
-        return { error: "El usuario no existe." };
+async function update(id, usuarioData){
+    try{
+
+    const {nombre_usuario, password_usuario} = usuarioData;
+    
+    const usuario = await usuarioModel.findByPk (id);
+    
+    if(!usuario){
+        return {error:"no se puede modificar un usuario inexistente!"};
     }
-    if (nombre_usuario) {
+    if(nombre_usuario){
         usuario.nombre_usuario = nombre_usuario;
     }
-    if (contraseña) {
-        usuario.contraseña = contraseña;
+    if(password_usuario){
+        usuario.password_usuario = password_usuario;
     }
-    return { data: usuario };
+
+    const newUsuario= await usuarioModel.update(id,usuario);
+
+    return {data:newUsuario};
+}
+catch(error){
+    console.error(error);
+    return error;
+}
 }
 
-async function remove(id) {
-    const usuarioIndex = usuarios.findIndex(usuario => usuario.id_usuario == id);
-    if (usuarioIndex === -1) {
-        return { error: "El usuario no existe." };
+async function remove(id){
+    try{
+        const result = await Model.remove(id);
+        return {data:result};
     }
-    const deletedUsuario = usuarios.splice(usuarioIndex, 1);
-    return { data: deletedUsuario };
+    catch(error){
+        console.error(error);
+    }
 }
 
-export {
+export{
     getAll,
     getById,
     create,
@@ -74,7 +99,7 @@ export {
     remove
 };
 
-export default {
+export default{ 
     getAll,
     getById,
     create,
