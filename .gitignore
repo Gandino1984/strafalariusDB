@@ -135,4 +135,4 @@ db/dataStorage_strafalariusDB
 
 docker-compose.yml
 
-sequelize.js
+src/config/sequelize.js
